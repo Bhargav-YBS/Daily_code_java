@@ -1,18 +1,16 @@
-// Class representing an individual node in the tree
+ 
 class Node {
     int data;
     Node left;
     Node right;
-
-    // Constructor to create a new node
+ 
     public Node(int value) {
         this.data = value;
         this.left = null;
         this.right = null;
     }
 }
-
-// Class managing the Binary Search Tree operations
+ 
 public class BinaryTree {
     Node root;
 
@@ -25,25 +23,24 @@ public class BinaryTree {
         root = insertRecursive(root, value);
     }
 
-    // Helper method to recursively find the correct insertion spot
+ 
     private Node insertRecursive(Node current, int value) {
         // Base Case: If the current spot is empty, create and return the node
         if (current == null) {
             return new Node(value);
         }
 
-        // Recur down the left or right subtree depending on the value
+        
         if (value < current.data) {
             current.left = insertRecursive(current.left, value);
         } else if (value > current.data) {
             current.right = insertRecursive(current.right, value);
         }
 
-        // Return the unchanged node pointer
+       
         return current;
     }
-
-    // 1. In-order Traversal (Left, Root, Right) -> Yields sorted order for BST
+ 
     public void inOrder() {
         System.out.print("In-order Traversal: ");
         inOrderRecursive(root);
@@ -58,7 +55,7 @@ public class BinaryTree {
         }
     }
 
-    // 2. Pre-order Traversal (Root, Left, Right)
+    
     public void preOrder() {
         System.out.print("Pre-order Traversal: ");
         preOrderRecursive(root);
@@ -72,8 +69,7 @@ public class BinaryTree {
             preOrderRecursive(node.right);
         }
     }
-
-    // 3. Post-order Traversal (Left, Right, Root)
+ 
     public void postOrder() {
         System.out.print("Post-order Traversal: ");
         postOrderRecursive(root);
@@ -88,7 +84,7 @@ public class BinaryTree {
         }
     }
 
-    // Main execution point to test the tree
+    
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
  
